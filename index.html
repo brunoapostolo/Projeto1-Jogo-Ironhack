@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Sudoku</title>
+    <link rel="stylesheet" href="./css/style.css">
+    </head>
+</header>
+<body>
+    <header>    
+        <h1>Sudoku</h1>
+        <div id="iniciar-jogo">
+            <div id="tempo-jogo">
+                <h3>Escolha o tempo de jogo</h3>
+                <label><input id="time-1" type="radio" name="time" value="tres" checked> 3 minutos</label>
+                <label><input id="time-2" type="radio" name="time" value="cinco" > 5 minutos</label>
+                <label><input id="time-3" type="radio" name="time" value="sete" > 7 minutos</label>
+            </div>
+            <div id="dificuldade">
+                <h3> Escolha a dificuldade: </h3>
+                <label><input id="diff-1" type="radio" name="diff" value="facil" checked> Fácil</label>
+                <label><input id="diff-2" type="radio" name="diff" value="medio" > Médio</label>
+                <label><input id="diff-3" type="radio" name="diff" value="dificil" > Difícil</label>
+            </div>
+        </div>
+        <button id="start-btn">Começar o seu jogo!</button>
+    </header>
+    <div id="stats">
+        <p id="timer"></p>
+        <p id="lives"></p>
+    </div>
+    <div id="game">
+        <div id="board"></div>
+        <div id="number-container" class="hidden">
+            <p id="um">1</p>
+            <p id="dois">2</p>
+            <p id="tres">3</p>
+            <p id="quatro">4</p>
+            <p id="cinco">5</p>
+            <p id="seis">6</p>
+            <p id="sete">7</p>
+            <p id="oito">8</p>
+            <p id="nove">9</p>
+        </div>        
+    </div>
+
+    <footer>
+        <p>O puzzle Sudoku foi projetado por Howard Garns, um arquiteto aposentado de 74 anos de idade e construtor independente de puzzles, baseando-se, provavelmente, no quadrado latino, uma construção matemática criada pelo suíço Leonhard Euler no século XVIII. Garns adicionou ao quadrado latino a sua nova criação como uma grade parcialmente preenchida onde o solucionador deveria preencher os demais quadros vazios. As primeiras publicações do sudoku ocorreram nos Estados Unidos no final dos anos 1970 na revista norte-americana Math Puzzles and Logic Problems, da editora Dell Magazines, especializada em desafios e quebra-cabeças. A editora deu, ao jogo, o nome de Number Place, que é usado até hoje nos Estados Unidos.</p>
+    </footer>
+    <script src="./js/index.js"></script>
+</body>
+</html>
