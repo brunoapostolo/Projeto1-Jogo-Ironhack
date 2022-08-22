@@ -1,0 +1,74 @@
+.hidden {
+    display: none;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: space-around;
+    padding-bottom: 20px;
+    border-bottom: 2px solid grey
+
+}
+h3{
+    font-size: 11pt;
+}
+label{
+    font-size: 11pt;
+}
+#iniciar-jogo{
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+    justify-content: space-between;
+}
+#iniciar-jogo > *{
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    align-items: center;
+
+}
+h1{
+    text-align: center;
+}
+#tempo-jogo{
+    border-right: 2px solid black;
+}
+
+#game {
+    display: flex;
+    justify-content: center;
+}
+
+#number-container > p {
+    border: 1px solid black;
+    width: 60px;
+    height: 60px;
+    font-size: 40pt;
+    margin-left: 50px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+#board {
+    padding-top: 10px;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    width:600px;
+    height: 600px;
+}
+
+.tile {
+    border: 1px solid grey;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    margin: 0;
+    vertical-align: bottom;
+    font-size: 35pt;
+}
