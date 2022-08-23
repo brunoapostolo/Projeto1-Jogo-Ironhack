@@ -14,9 +14,9 @@
         <div id="iniciar-jogo">
             <div id="tempo-jogo">
                 <h3>Escolha o tempo de jogo</h3>
-                <label><input id="time-1" type="radio" name="time" value="tres" checked> 3 minutos</label>
-                <label><input id="time-2" type="radio" name="time" value="cinco" > 5 minutos</label>
-                <label><input id="time-3" type="radio" name="time" value="sete" > 7 minutos</label>
+                <label><input id="time-1" type="radio" name="time" value="cinco" checked> 5 minutos</label>
+                <label><input id="time-2" type="radio" name="time" value="sete" > 7 minutos</label>
+                <label><input id="time-3" type="radio" name="time" value="dez" > 10 minutos</label>
             </div>
             <div id="dificuldade">
                 <h3> Escolha a dificuldade: </h3>
@@ -31,7 +31,7 @@
         <p id="timer"></p>
         <p id="lives"></p>
     </div>
-    <div id="game">
+    <div id="game" class="hidden">
         <div id="board"></div>
         <div id="number-container" class="hidden">
             <p id="um">1</p>
@@ -44,6 +44,9 @@
             <p id="oito">8</p>
             <p id="nove">9</p>
         </div>        
+    </div>
+    <div id="congratulations" class="hidden">
+        <h1 class="final">PARABÉNS, VOCÊ FINALIZOU O JOGO</h1>
     </div>
 
     <footer>
