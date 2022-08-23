@@ -13,33 +13,43 @@ let selectedNum;
 let selectedTile;
 let disableSelect;
 
-const startBtn = document.getElementById("start-btn"); /// criei variável sendo que pudia usar uma função em vez de criar
-const nivelFacil = document.getElementById("diff-1");/// criei variável sendo que pudia usar uma função em vez de criar
-const nivelMedio = document.getElementById("diff-2");/// criei variável sendo que pudia usar uma função em vez de criar
-const nivelDificil = document.getElementById("diff-3");/// criei variável sendo que pudia usar uma função em vez de criar
+const startBtn = document.getElementById("start-btn"); /// criei variável sendo que podia usar uma função em vez de criar
+const nivelFacil = document.getElementById("diff-1");/// criei variável sendo que podia usar uma função em vez de criar
+const nivelMedio = document.getElementById("diff-2");/// criei variável sendo que podia usar uma função em vez de criar
+const nivelDificil = document.getElementById("diff-3");/// criei variável sendo que podia usar uma função em vez de criar
 
-startBtn.addEventListener("click",startGame);
+startBtn.addEventListener("click",startGame, lives=10);
 
 function startGame(){
     let board;
+    let gabarito;
     if(nivelFacil.checked) {
-        board= facil[0];}
+        board= facil[0];
+        gabarito = facil[1];
+    }
     else if (nivelMedio.checked){
-        board =  medio[0];
+        board =  medio[0]
+        gabarito = medio[1];
     }
     else if (nivelDificil.checked){
         board = dificil[0];
+        gabarito = dificil[1];
     }
-    generateBoard(board);
+    disableSelect=false;
+    generateBoard(board,gabarito);
+    id("game").classList.remove("hidden")
+    return board, gabarito
 }
 
-function generateBoard(board){
+function generateBoard(board,gabarito){
     clearPrevious()
     let idCount =0
     for (let i=0; i<81;i++){
-        let tile= document.createElement("p")
+        let tile= document.createElement("input")
         if (board.charAt(i)!="-"){
-            tile.textContent = board.charAt(i);
+            tile.value = board.charAt(i);
+            tile.readOnly=true;
+            tile.disabled=true;
         }
         else{
             tile.textContent="";
@@ -47,17 +57,83 @@ function generateBoard(board){
         tile.id = idCount;
         idCount++;
         tile.classList.add("tile")
+        if ((tile.id>17 && tile.id<27)||(tile.id>44 && tile.id<54)){
+            tile.classList.add("bottom-border")
+        }
+        if ((tile.id%9===2)||(tile.id%9===5)){
+            tile.classList.add("right-border")
+        }
         id("board").appendChild(tile);
     } 
+
+
+
+    const variavel = document.querySelectorAll(".tile"); // podia muito bem ter usado o qsa()
+    variavel.forEach((element)=>{
+        element.addEventListener("keyup",(event)=>{
+            let a = element.value;
+            if(a===gabarito[element.id]){
+                console.log("Você digitou certo");
+                element.classList.remove("incorrect");
+                element.classList.add("correct");
+            }    
+            else if(isNaN(a) || a===" "||a.length===2){
+                alert("Digite um numero de 0 a 9")
+            }        
+            else if (a.length===1 && a!==""&& a!==gabarito[element.id]){
+                element.classList.remove("correct");
+                element.classList.add("incorrect");
+                lives--
+                console.log("Você digitou errado");
+                id("lives").innerText= `Você ainda tem ${lives} vidas`
+            }
+            let corretos = qsa(".correct");
+            let faltamAcertar
+            if(board===facil[0]){
+                faltamAcertar=47-corretos.length;
+                console.log("faltam acertar "+faltamAcertar);
+            }
+            if(board===medio[0]){
+                faltamAcertar=51-corretos.length;
+                console.log("Faltam acertar "+ faltamAcertar);
+            }
+            else if (board===dificil[0]){
+                faltamAcertar=56-corretos.length;
+                console.log("Faltam acertar "+ faltamAcertar);
+            }
+            if (faltamAcertar===0){
+                id("board").classList.add("hidden");
+                id("congratulations").classList.remove("hidden");
+            }
+        })
+    })
+
 }
+
+function checkIfGameisDone(board){
+    let contador =0
+    for (let a=0; a<81;a++){
+        if(board[a]==="-"){
+            contador++
+        }
+    }
+    console.log(lives)
+    console.log(qsa(".correct"))
+}
+
 
 /// consertar essa função que é para limpar o tabuleiro toda vez que eu quiser começar um jogo novo   
 function clearPrevious(){
-    let tiles =qsa(".tile");
-    for (let i =0 ; a<tiles.length;i++){
-        tiles[i].remove();
-    }
+    let tiles =qsa(".tile"); // query selector all
+    tiles.forEach((element)=>{
+        element.remove();
+    })
+    lives =10;
+    id("lives").innerText= `Você tem ${lives} vidas`
+
 }
+
+
 
 
 /// Essa função tem o papel de me poupar de criar variáveis toda vez que eu precisar escrever getElementById
