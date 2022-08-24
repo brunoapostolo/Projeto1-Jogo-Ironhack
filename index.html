@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +10,7 @@
 </header>
 <body>
     <header>    
-        <h1>Sudoku</h1>
+        <h1 id="titulo-jogo">Sudoku</h1>
         <div id="iniciar-jogo">
             <div id="tempo-jogo">
                 <h3>Escolha o tempo de jogo</h3>
@@ -48,7 +48,9 @@
     <div id="congratulations" class="hidden">
         <h1 class="final">PARABÉNS, VOCÊ FINALIZOU O JOGO</h1>
     </div>
-
+    <div id="lamentacao" class="hidden">
+        <h1 id="perdeu" class="game-over"></h1>
+    </div>
     <footer>
         <p>O puzzle Sudoku foi projetado por Howard Garns, um arquiteto aposentado de 74 anos de idade e construtor independente de puzzles, baseando-se, provavelmente, no quadrado latino, uma construção matemática criada pelo suíço Leonhard Euler no século XVIII. Garns adicionou ao quadrado latino a sua nova criação como uma grade parcialmente preenchida onde o solucionador deveria preencher os demais quadros vazios. As primeiras publicações do sudoku ocorreram nos Estados Unidos no final dos anos 1970 na revista norte-americana Math Puzzles and Logic Problems, da editora Dell Magazines, especializada em desafios e quebra-cabeças. A editora deu, ao jogo, o nome de Number Place, que é usado até hoje nos Estados Unidos.</p>
     </footer>
