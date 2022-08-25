@@ -1,7 +1,7 @@
-# Projeto1-Jogo-Ironhack
+# Project 1 - Sudoku Game-Ironhack
 
-Jogo de Sudoku criado utilizando o JavaScript, HTML e CSS.
+Sudoku game created using JavaScript, HTML and CSS.
 
 
-Autoria de Bruno Cesar Apostolo
-contato: bruno.apos13@gmail.com
+Made by: Bruno Cesar Apostolo
+email: bruno.apos13@gmail.com
